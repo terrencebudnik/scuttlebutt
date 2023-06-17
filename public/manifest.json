@@ -1,9 +1,43 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+
+"short_name": "Scuttlebutt",
+  "name": "Scuttlebutt",
   
-  "start_url": ".",
+  "icons": [
+    {
+      "src": "./scuttlebuttLogo.svg",
+      "sizes": "48x48",
+      "type": "image/webp"
+    },
+    {
+      "src": "./scuttlebuttLogo.svg",
+      "sizes": "72x72 96x96 128x128 256x256",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "./scuttlebuttLogo.svg",
+      "sizes": "72x72"
+    },
+    {
+      "src": "./scuttlebuttLogo.svg",
+      "sizes": "any",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./iconLogo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "./scuttlebuttLogo.svg",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/index.html",
+  "background_color": "#3367D6",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "scope": "/",
+  "theme_color": "#3367D6"
+
 }

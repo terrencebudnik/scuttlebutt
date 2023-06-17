@@ -1,7 +1,5 @@
 {
- 
   "hosting": {
-    "site": "scuttlebuttapp",
     "public": "build",
     "ignore": [
       "firebase.json",
