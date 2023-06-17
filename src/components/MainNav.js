@@ -4,7 +4,7 @@ import "./MainNav.css"
 function MainNav() {
     return (
         <div className="main-nav">
-                <img src={profileImage} style={{height: "55%"}} alt="profile" />
+                <img src={profileImage} style={{height: "30%"}} alt="profile" />
             <div className="main-nav-header">
      
                 <h1>Scuttlebutt</h1>

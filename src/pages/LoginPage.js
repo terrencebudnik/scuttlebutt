@@ -65,7 +65,7 @@ function LoginPage() {
                     onChange={handlePhoneChange}
                 />
                 <button id="sign-in-button" type="submit" className="submit-button">
-                    Send Verification Code
+                    Submit
                 </button>
             </form>
 

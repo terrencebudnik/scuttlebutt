@@ -34,7 +34,7 @@
 }
 
 .phone-input, .code-input {
-    width: 300px;
+    width: 70%;
     padding: 10px;
     margin: 10px 0;
     border: none;
@@ -46,7 +46,7 @@
 }
 
 .submit-button {
-    width: 300px;
+    width: 60%;
     padding: 10px;
     margin: 10px 0;
     border: none;
