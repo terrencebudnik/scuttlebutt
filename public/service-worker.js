@@ -1,13 +1,13 @@
 // Give your cache a name. You can name it anything you want.
-const CACHE_NAME = 'your-cache-name';
+const CACHE_NAME = "version-1";
 
 // The files we want to cache.
 const urlsToCache = [
   '/',
   '/index.html',
+  "https://scuttlebutt-3ef1a.web.app/",
   '/manifest.json',
-  './iconLogo.png',
-  './scuttlebuttLogo.svg'
+  './iconLogo.png'
 ];
 
 // Set the callback for the install step
