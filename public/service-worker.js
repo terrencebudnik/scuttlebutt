@@ -3,11 +3,11 @@ const CACHE_NAME = "version-1";
 
 // The files we want to cache.
 const urlsToCache = [
-  '/',
-  '/index.html',
-  "https://scuttlebutt-3ef1a.web.app/",
-  '/manifest.json',
-  './iconLogo.png'
+    './index.html',
+    '/static/css/main.css',  // Update with actual CSS file path
+    './static/js/main.js',    // Update with actual JS file path
+    './manifest.json',
+    './iconLogo.png'
 ];
 
 // Set the callback for the install step
@@ -23,17 +23,20 @@ self.addEventListener('install', async function(event) {
 });
 
 // Set up a listener for fetching. Log requests and serve cached responses when possible.
-self.addEventListener('fetch', function(event) {
+self.addEventListener('fetch', event => {
     event.respondWith(
         caches.match(event.request)
-            .then(function(response) {
-                // Cache hit - return response
-                if (response) {
-                    return response;
+            .then(cachedResponse => {
+                if (cachedResponse) {
+                    return cachedResponse;
                 }
-                return fetch(event.request);
-            }
-        )
+                else if (event.request.headers.get('accept').includes('text/html')) {
+                    return caches.match('index.html');
+                }
+                else {
+                    return fetch(event.request);
+                }
+            })
     );
 });
 
