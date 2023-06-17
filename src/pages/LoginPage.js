@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { app } from '../firebaseConfig.js';
+import { useAuthState } from "react-firebase-hooks/auth";
 import { getAuth, RecaptchaVerifier, signInWithPhoneNumber } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
+import LoginNav from '../components/LoginNav.js';
 import './LoginPage.css';
 
 function LoginPage() {
@@ -52,7 +54,8 @@ function LoginPage() {
     }
 
     return (
-        <div className="login-page">
+        <div className="login-container">
+            <LoginNav />
             <form onSubmit={handleSubmitPhone}>
                 <input
                     className="phone-input"

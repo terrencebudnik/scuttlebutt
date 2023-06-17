@@ -1,0 +1,23 @@
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10rem;
+    width: 100%;
+    background-color: #585757;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 18px;
+}
+
+.main-nav-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    font-size: 4rem;
+}
+
+  
