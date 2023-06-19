@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoginPage from './pages/LoginPage';
 import Homepage from './pages/Homepage';
@@ -8,13 +8,23 @@ import './App.css';
 
 function App() {
   const auth = getAuth();
-  const [user] = useAuthState(auth); // gets the current user
-  
+  const [user, loading] = useAuthState(auth); 
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    if (!loading) {
+      setIsLoaded(true);
+    }
+  }, [loading]);
+
+  if (!isLoaded) {
+    return <div>Loading...</div>; // or replace with a loading spinner
+  }
+
   return (
     <div className="App">
       <Router>
         <Routes>
-          {/* If the user is logged in, render the Homepage, otherwise render the LoginPage */}
           <Route path="/" element={user ? <Homepage /> : <LoginPage />} />
         </Routes>
       </Router>
@@ -23,3 +33,4 @@ function App() {
 }
 
 export default App;
+
