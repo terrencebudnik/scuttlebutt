@@ -1,3 +1,4 @@
+import React from "react";
 import { auth } from "../firebaseConfig";
 import MainNav from "../components/MainNav";
 import StartScuttle from "../components/StartScuttle";

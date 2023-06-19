@@ -1,3 +1,4 @@
+import React from "react"
 import profileImage  from "../images/profileImage.svg"
 import "./MainNav.css"
 

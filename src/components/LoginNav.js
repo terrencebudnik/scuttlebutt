@@ -1,3 +1,4 @@
+import React from "react";
 import "./LoginNav.css"
 
 function LoginNav() {

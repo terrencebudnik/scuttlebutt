@@ -1,3 +1,4 @@
+import React from "react"
 import startScuttleButton from "../images/startScuttleButton.svg"
 import "./StartScuttle.css"
 
