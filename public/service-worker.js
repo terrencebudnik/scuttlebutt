@@ -4,7 +4,7 @@ const CACHE_NAME = "version-1";
 // The files we want to cache.
 const urlsToCache = [
     './index.html',
-    '/static/css/main.css',  // Update with actual CSS file path
+    './static/css/main.css',  // Update with actual CSS file path
     './static/js/main.js',    // Update with actual JS file path
     './manifest.json',
     './iconLogo.png'
