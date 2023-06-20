@@ -1,10 +1,11 @@
 import React from "react";
+import "./LoginPageWelcome.css";
 
 function LoginPageWelcome({ onClick }) {
     return (
-      
-           <button onClick={onClick} >What's the Scuttlebut</button>
-        
+      <div className="login-welcome-container">
+           <button className="login-welcome-button" onClick={onClick} >What's the Scuttlebutt?</button>
+        </div>
     );
 }
 

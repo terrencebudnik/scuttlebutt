@@ -1,8 +1,11 @@
 import React from 'react';
+import './LoginPageVerify.css';
 
 function LoginPageVerify({ code, handleCodeChange, handleSubmitCode }) {
   return (
-    <form onSubmit={handleSubmitCode}>
+    <div className="login-verify-container">
+    <form className="login-verify-form" onSubmit={handleSubmitCode}>
+    <h1 className="login-verify-title">Enter Code Sent to Phone</h1>
       <input
         className="code-input"
         type="text"
@@ -14,6 +17,7 @@ function LoginPageVerify({ code, handleCodeChange, handleSubmitCode }) {
         Verify Code
       </button>
     </form>
+    </div>
   );
 }
 

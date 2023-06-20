@@ -19,6 +19,15 @@ function LoginPage() {
   const [confirmationResult, setConfirmationResult] = useState(null);
   const [stage, setStage] = useState("welcome");
 
+  const formatPhoneNumber = (inputNumber) => {
+    const cleaned = ('' + inputNumber).replace(/\D/g, '');
+    const match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
+    if (match) {
+      return '+1' + match[1] + match[2] + match[3];
+    }
+    return null;
+  }
+
   const handlePhoneChange = (event) => {
     setPhone(event.target.value);
   };
@@ -29,30 +38,34 @@ function LoginPage() {
 
   const handleSubmitPhone = async (event) => {
     event.preventDefault();
-
-    // Setup recaptcha if it is not already
-    if (!window.recaptchaVerifier) {
-      window.recaptchaVerifier = new RecaptchaVerifier(
-        "sign-in-button",
-        {
-          size: "invisible",
-          callback: (response) => {
-            // reCAPTCHA solved - Not doing anything here
+    const formattedPhoneNumber = formatPhoneNumber(phone);
+    if(formattedPhoneNumber) {
+      // Setup recaptcha if it is not already
+      if (!window.recaptchaVerifier) {
+        window.recaptchaVerifier = new RecaptchaVerifier(
+          "sign-in-button",
+          {
+            size: "invisible",
+            callback: (response) => {
+              // reCAPTCHA solved - Not doing anything here
+            },
           },
-        },
-        getAuth(app)
-      );
+          getAuth(app)
+        );
+      }
+  
+      const appVerifier = window.recaptchaVerifier;
+      signInWithPhoneNumber(getAuth(), formattedPhoneNumber, appVerifier)
+        .then((result) => {
+          setConfirmationResult(result);
+          setStage("verification");
+        })
+        .catch((error) => {
+          console.log("SMS not sent", error);
+        });
+    } else {
+      console.log("Invalid phone number.");
     }
-
-    const appVerifier = window.recaptchaVerifier;
-    signInWithPhoneNumber(getAuth(), phone, appVerifier)
-      .then((result) => {
-        setConfirmationResult(result);
-        setStage("verification");
-      })
-      .catch((error) => {
-        console.log("SMS not sent", error);
-      });
   };
 
   const handleSubmitCode = async (event) => {
