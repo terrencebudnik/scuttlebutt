@@ -2,36 +2,22 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-image: linear-gradient(to bottom, white, white 90%,#d0e8f2 80%, #d0e8f2 80%);
+    background-size: 100% 3em; /* adjust to control line spacing */
+    padding: 1em;
     height: 75%;
     width: 75%;
-    margin-top: 100px;
-    background-color: #d0e8f2; 
-    border-radius: 20px;
-    border:#ff7f00 5px solid;
+    margin-top: 50px;
+    margin-bottom: 50px;
+   
+    
+    border: lightgray 1px solid;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
     font-family: 'Nanum Brush Script', cursive;
 }
 
-.login-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 20%;
-    width: 100%;
-    font-size: 75px;
-    color: white
-}
 
 
-
-.login-container form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 50%;
-    width: 100%;
-}
 
 .phone-input, .code-input {
     width: 70%;

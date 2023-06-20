@@ -1,6 +1,6 @@
 # Scuttlebutt
 
-## The Text Telephone Game is an interactive and engaging web application inspired by the classic game of "Telephone". Instead of whispering messages, this game takes a modern, text-based approach. The message is displayed briefly and then the recipient needs to replicate the exact message without the use of autocorrect.
+## Scuttlebutt is an interactive and engaging web application inspired by the classic game of "Telephone". Instead of whispering messages, this game takes a modern, text-based approach. The message is displayed briefly and then the recipient needs to replicate the exact message without the use of autocorrect.
 
 ### This project is built using React for the front-end and Firebase for the back-end, providing a real-time, collaborative experience to all users.
 
