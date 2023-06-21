@@ -18,7 +18,7 @@ function App() {
   }, [loading]);
 
   if (!isLoaded) {
-    return <div>Loading...</div>; // or replace with a loading spinner
+    return <div>Loading...</div>; 
   }
 
   return (

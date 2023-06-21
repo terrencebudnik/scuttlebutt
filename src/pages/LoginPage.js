@@ -20,13 +20,13 @@ function LoginPage() {
   const [stage, setStage] = useState("welcome");
 
   const formatPhoneNumber = (inputNumber) => {
-    const cleaned = ('' + inputNumber).replace(/\D/g, '');
+    const cleaned = ("" + inputNumber).replace(/\D/g, "");
     const match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
     if (match) {
-      return '+1' + match[1] + match[2] + match[3];
+      return "+1" + match[1] + match[2] + match[3];
     }
     return null;
-  }
+  };
 
   const handlePhoneChange = (event) => {
     setPhone(event.target.value);
@@ -39,21 +39,18 @@ function LoginPage() {
   const handleSubmitPhone = async (event) => {
     event.preventDefault();
     const formattedPhoneNumber = formatPhoneNumber(phone);
-    if(formattedPhoneNumber) {
-      // Setup recaptcha if it is not already
+    if (formattedPhoneNumber) {
       if (!window.recaptchaVerifier) {
         window.recaptchaVerifier = new RecaptchaVerifier(
           "sign-in-button",
           {
             size: "invisible",
-            callback: (response) => {
-              // reCAPTCHA solved - Not doing anything here
-            },
+            callback: (response) => {},
           },
           getAuth(app)
         );
       }
-  
+
       const appVerifier = window.recaptchaVerifier;
       signInWithPhoneNumber(getAuth(), formattedPhoneNumber, appVerifier)
         .then((result) => {
@@ -89,21 +86,21 @@ function LoginPage() {
     <>
       <LoginHeader />
       <div className="login-container">
-      {stage === "welcome" && <LoginPageWelcome onClick={goToPhoneInput} />}
-      {stage === "phoneInput" && (
-        <LoginPagePhone
-          phone={phone}
-          handlePhoneChange={handlePhoneChange}
-          handleSubmitPhone={handleSubmitPhone}
-        />
-      )}
-      {stage === "verification" && (
-        <LoginPageVerify
-          code={code}
-          handleCodeChange={handleCodeChange}
-          handleSubmitCode={handleSubmitCode}
-        />
-      )}
+        {stage === "welcome" && <LoginPageWelcome onClick={goToPhoneInput} />}
+        {stage === "phoneInput" && (
+          <LoginPagePhone
+            phone={phone}
+            handlePhoneChange={handlePhoneChange}
+            handleSubmitPhone={handleSubmitPhone}
+          />
+        )}
+        {stage === "verification" && (
+          <LoginPageVerify
+            code={code}
+            handleCodeChange={handleCodeChange}
+            handleSubmitCode={handleSubmitCode}
+          />
+        )}
       </div>
     </>
   );
