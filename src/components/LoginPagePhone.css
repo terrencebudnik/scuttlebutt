@@ -16,6 +16,10 @@
     height: 50%;
 }
 
+.phone-input {
+    display: flex;
+}
+
 .login-phone-title {
     display: flex;
     width: 100%;

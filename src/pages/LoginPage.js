@@ -28,9 +28,13 @@ function LoginPage() {
     return null;
   };
 
-  const handlePhoneChange = (event) => {
-    setPhone(event.target.value);
+  const handlePhoneChange = (inputs) => {
+    const phoneValue = inputs["Phone Number"];
+    console.log("Phone value from Keyboard: ", phoneValue);
+    setPhone(phoneValue);
   };
+  
+  
 
   const handleCodeChange = (event) => {
     setCode(event.target.value);
@@ -38,6 +42,7 @@ function LoginPage() {
 
   const handleSubmitPhone = async (event) => {
     event.preventDefault();
+    console.log("Phone before formatting: ", phone); // Add this line
     const formattedPhoneNumber = formatPhoneNumber(phone);
     if (formattedPhoneNumber) {
       if (!window.recaptchaVerifier) {
@@ -61,7 +66,7 @@ function LoginPage() {
           console.log("SMS not sent", error);
         });
     } else {
-      console.log("Invalid phone number.");
+      console.log("Invalid phone number");
     }
   };
 

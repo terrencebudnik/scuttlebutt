@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import LoginPage from './pages/LoginPage';
-import Homepage from './pages/Homepage';
+import LoginPage from "./pages/LoginPage";
+import Homepage from "./pages/Homepage";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { getAuth } from 'firebase/auth';
-import './App.css';
+import { getAuth } from "firebase/auth";
+import "./App.css";
 
 function App() {
   const auth = getAuth();
-  const [user, loading] = useAuthState(auth); 
+  const [user, loading] = useAuthState(auth);
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -18,7 +18,7 @@ function App() {
   }, [loading]);
 
   if (!isLoaded) {
-    return <div>Loading...</div>; 
+    return <div>Loading...</div>;
   }
 
   return (
@@ -33,4 +33,3 @@ function App() {
 }
 
 export default App;
-
