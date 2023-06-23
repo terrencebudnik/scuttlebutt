@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { app } from "../firebaseConfig.js";
 import {
   getAuth,
@@ -11,6 +11,9 @@ import LoginPageWelcome from "../components/LoginPageWelcome.js";
 import LoginPagePhone from "../components/LoginPagePhone.js";
 import LoginPageVerify from "../components/LoginPageVerify.js";
 import "./LoginPage.css";
+
+
+
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -34,11 +37,13 @@ function LoginPage() {
     setPhone(phoneValue);
   };
   
-  
-
-  const handleCodeChange = (event) => {
-    setCode(event.target.value);
+  const handleCodeChange = (inputs) => {
+    const codeValue = inputs["Verification Code"];
+    console.log("Code value from Keyboard: ", codeValue);
+    setCode(codeValue);
   };
+
+
 
   const handleSubmitPhone = async (event) => {
     event.preventDefault();

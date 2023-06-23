@@ -1,17 +1,26 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
 import "./KeyboardComponent.css"
 
-
-const KeyboardComponent = () => {
-  const [input, setInput] = useState("");
+const KeyboardComponent = ({inputNames, value, onChange}) => {
   const [layout, setLayout] = useState("default");
   const keyboard = useRef();
 
-  const onChange = input => {
-    setInput(input);
+  useEffect(() => {
+    setInputValue(value);
+  }, [value]);
+
+  const setInputValue = inputValue => {
+    if (keyboard.current) {
+      keyboard.current.setInput(inputValue);
+    }
+  };
+
+  const handleKeyboardChange = (input) => {
     console.log("Input changed", input);
+    // Call parent's onChange handler
+    onChange({ [inputNames[0]]: input });
   };
 
   const handleShift = () => {
@@ -22,30 +31,17 @@ const KeyboardComponent = () => {
   const onKeyPress = button => {
     console.log("Button pressed", button);
 
-    /**
-     * If you want to handle the shift and caps lock buttons
-     */
     if (button === "{shift}" || button === "{lock}") handleShift();
-  };
-
-  const onChangeInput = event => {
-    const input = event.target.value;
-    setInput(input);
-    keyboard.current.setInput(input);
   };
 
   return (
     <div>
-      <input
-        value={input}
-        placeholder={""}
-        onChange={onChangeInput}
-      />
       <Keyboard
         keyboardRef={r => (keyboard.current = r)}
         layoutName={layout}
-        onChange={onChange}
+        onChange={handleKeyboardChange}
         onKeyPress={onKeyPress}
+        inputName={inputNames[0]}
       />
     </div>
   );

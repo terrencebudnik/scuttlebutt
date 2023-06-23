@@ -8,12 +8,20 @@ html, body {
   height: 100%;
 }
 
+@keyframes animate {
+  0%   { transform: translateX(0); }
+  50%  { transform: translateX(100px); }
+  100% { transform: translateX(0); }
+}
+
 .react-simple-keyboard {
   display: flex;
 padding-right: 5px  ;
 padding-bottom: 0px;
 height: 100%;
   width: 100%;
+background-color: black !important;
+/* animation: animate 1s infinite; */
 
   margin-bottom: 25px;
   font-family: 'Nanum Brush Script', cursive !important;; 

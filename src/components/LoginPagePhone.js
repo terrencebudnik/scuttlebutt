@@ -14,14 +14,19 @@ function LoginPagePhone({ phone, handlePhoneChange, handleSubmitPhone }) {
         <form className="login-phone-form" onSubmit={handleSubmitPhone}>
           <h1 className="login-phone-title">Enter Your Phone Number</h1>
 
+          <input 
+            type="text" 
+            value={phone} 
+            onChange={(e) => handlePhoneChange({ "Phone Number": e.target.value })}
+          />
+
           <button id="sign-in-button" type="submit" className="submit-button">
             Submit
           </button>
         </form>
       </div>
 
-      <KeyboardComponent style={{color: "red", display: "flex", flexDirection: "column", width: "368px"}}
-        keyboardRef={keyboardRef}
+      <KeyboardComponent
         inputNames={["Phone Number"]}
         value={phone}
         onChange={handlePhoneChange}
