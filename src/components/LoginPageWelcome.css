@@ -1,24 +1,48 @@
 .login-welcome-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     width: 100%;
     height: 100%;
 }
 
-.login-welcome-button {
+.login-welcome-header {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 35%;
+    font-size: 8vw;
+    font-weight: bold;
+    font-family: 'Nanum Brush Script', cursive;
+}
+
+@media (min-width: 800px) {
+    .login-welcome-header {
+      font-size: 3vw;
+    }
+  }
+  
+
+.login-welcome-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    height: 25%;
     border-radius: 10px;
     background-color: #ff7f00;
     color: black;
-    font-size: 35px;
+    font-size: 5vw;
     font-weight: bold;
     font-family: 'Nanum Brush Script', cursive;
     border: none;
     cursor: pointer;
 }
+
+@media (min-width: 800px) {
+    .login-welcome-button {
+      font-size: 3vw;
+      width: 20%;
+    }
+  }
+  

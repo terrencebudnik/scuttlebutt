@@ -6,7 +6,6 @@ import {
   signInWithPhoneNumber,
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import LoginHeader from "../components/LoginHeader.js";
 import LoginPageWelcome from "../components/LoginPageWelcome.js";
 import LoginPagePhone from "../components/LoginPagePhone.js";
 import LoginPageVerify from "../components/LoginPageVerify.js";
@@ -93,8 +92,8 @@ function LoginPage() {
     console.log(stage);
   };
   return (
-    <>
-      <LoginHeader />
+    <div className="login-page">
+        <h1 className="login-header">Scuttlebutt</h1>
       <div className="login-container">
         {stage === "welcome" && <LoginPageWelcome onClick={goToPhoneInput} />}
         {stage === "phoneInput" && (
@@ -112,7 +111,7 @@ function LoginPage() {
           />
         )}
       </div>
-    </>
+    </div>
   );
 }
 

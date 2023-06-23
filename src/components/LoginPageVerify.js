@@ -1,5 +1,4 @@
 import React, { useRef, useEffect } from "react";
-import KeyboardComponent from "./KeyboardComponent";
 import './LoginPageVerify.css';
 
 function LoginPageVerify({ code, handleCodeChange, handleSubmitCode }) {
@@ -12,26 +11,23 @@ function LoginPageVerify({ code, handleCodeChange, handleSubmitCode }) {
   return (
       <>
     <div className="login-verify-container">
-    <form className="login-verify-form" onSubmit={handleSubmitCode}>
     <h1 className="login-verify-title">Enter Code Sent to Phone</h1>
-      
-      <input
+    <form className="login-verify-form" onSubmit={handleSubmitCode}>
+      <div className="code-input-container">
+
+      <input className="code-input"
         type="text"
         value={code}
         onChange={(e) => handleCodeChange({ "Verification Code": e.target.value })}
       />
-
+      </div>
       <button type="submit" className="submit-button">
         Verify Code
       </button>
     </form>
     </div>
 
-    <KeyboardComponent
-      inputNames={["Verification Code"]}
-      value={code}
-      onChange={handleCodeChange}
-    />
+    
 
     </>
   );

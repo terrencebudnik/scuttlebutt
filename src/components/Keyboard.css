@@ -1,0 +1,19 @@
+.keyboard {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 10px;
+  }
+  
+  .keyboard button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4C4C4C;
+    color: white;
+    font-size: 18px;
+  }
+  
+  .keyboard div {
+    grid-column: span 10;
+  }
+  
