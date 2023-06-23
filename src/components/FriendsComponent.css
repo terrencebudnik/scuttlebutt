@@ -1,4 +1,4 @@
-.group-component-container {
+.add-friends-component-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,7 +8,7 @@
   margin: 10px;
 }
 
-.group-component-card {
+.add-friends-component-card {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,7 +19,7 @@
   border-radius: 10px;
 }
 
-.group-component-card button {
+.add-friends-component-card button {
   height: 100%;
   width: 80%;
   color: black;
@@ -30,6 +30,6 @@
   border: none;
 }
 
-.group-component-card button:hover {
+.add-friends-component-card button:hover {
   color: #ff7f00;
 }

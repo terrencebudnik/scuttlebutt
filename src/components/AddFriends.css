@@ -1,36 +1,49 @@
-.add-friends-component-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 20%;
-    margin: 10px;
+.add-friends-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #333;
+  width: 100%;
+  font-family: "Nanum Brush Script", cursive;
+  font-size: 1.5rem;
 }
 
-.add-friends-component-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 90%;
-    height: 100%;
-    border: solid 3px black;
-    border-radius: 10px;
+.add-friends-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
 }
 
-
-.add-friends-component-card button {
-    height: 100%;
-    width: 80%;
-    color: black;
-    font-size: 4rem;
-    font-weight: 600;
-    background-color: transparent;
-    font-family: 'Nanum Brush Script', cursive;
-    border: none;
+.add-friends-container .add-friends-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
-.add-friends-component-card button:hover {
-    color: #ff7f00;
-}   
+.add-friends-container .add-friends-form input {
+  width: 100%;
+  height: 3rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 0 1rem;
+  font-size: 1.2rem;
+}
+
+.add-friends-container .add-friends-form button {
+  width: 100%;
+  height: 3rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #0c7bcf;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.add-friends-container .add-friends-form button:hover {
+  background-color: #0c7bcf;
+}

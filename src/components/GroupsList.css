@@ -1,0 +1,26 @@
+.groups-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #333;
+  width: 100%;
+  font-family: "Nanum Brush Script", cursive;
+  font-size: 1.5rem;
+}
+
+.groups-list-container h1 {
+  font-size: 3rem;
+}
+
+.groups-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 50%;
+  border: 1px solid black;
+  border-radius: 5px;
+}

@@ -1,0 +1,146 @@
+.friends-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.friends-page-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 20%;
+  font-size: 8vw;
+}
+
+@media (min-width: 800px) {
+  .friends-page-title {
+    font-size: 3vw;
+  }
+}
+
+.friends-page-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 80%;
+}
+
+.friends-page-content-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 10%;
+  font-size: 5vw;
+}
+
+@media (min-width: 800px) {
+  .friends-page-content-title {
+    font-size: 2vw;
+  }
+}
+
+.friends-page-content-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 90%;
+  overflow-y: scroll;
+}
+
+.friends-page-content-list-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 10%;
+  font-size: 5vw;
+  border-bottom: 1px solid #333;
+}
+
+@media (min-width: 800px) {
+  .friends-page-content-list-item {
+    font-size: 2vw;
+  }
+}
+
+.friends-page-content-list-item:hover {
+  background-color: #333;
+  color: white;
+}
+
+.friends-page-content-list-item:active {
+  background-color: #333;
+  color: white;
+}
+
+.friends-page-content-list-item:visited {
+  background-color: #333;
+  color: white;
+}
+
+.friends-page-content-list-item:link {
+  background-color: #333;
+  color: white;
+}
+
+.friends-page-content-list-item:focus {
+  background-color: #333;
+  color: white;
+}
+
+.friends-page-content-list-item:target {
+  background-color: #333;
+  color: white;
+}
+
+.friends-page-content-list-item:after {
+  background-color: #333;
+  color: white;
+}
+
+.friends-page-content-list-item:before {
+  background-color: #333;
+  color: white;
+}
+
+.friends-page-content-list-item:not(:first-child) {
+  border-top: 1px solid #333;
+}
+
+.friends-page-content-list-item:not(:last-child) {
+  border-bottom: 1px solid #333;
+}
+
+.friends-page-content-list-item:first-child {
+  border-top: none;
+}
+
+.friends-page-content-list-item:last-child {
+  border-bottom: none;
+}
+
+.friends-page-content-list-item:nth-child(odd) {
+  background-color: #333;
+  color: white;
+}
+
+.friends-page-content-list-item:nth-child(even) {
+  background-color: white;
+  color: #333;
+}
+
+.friends-page-content-list-item:nth-child(odd):hover {
+  background-color: #333;
+  color: white;
+}
+
+.friends-page-content-list-item:nth-child(even):hover {
+  background-color: #333;
+  color: white;
+}

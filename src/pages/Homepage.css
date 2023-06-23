@@ -6,7 +6,6 @@
     background-size: 100% 3em; /* adjust to control line spacing */
     height: 100%;
     width: 100%;
-     
     border: lightgray 1px solid;
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
     font-family: 'Nanum Brush Script', cursive;

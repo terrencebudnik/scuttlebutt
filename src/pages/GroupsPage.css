@@ -1,0 +1,10 @@
+.groups-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  color: #333;
+  width: 100%;
+  font-family: "Nanum Brush Script", cursive;
+  font-size: 1.5rem;
+}

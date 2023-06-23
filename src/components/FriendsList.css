@@ -1,0 +1,58 @@
+.friends-list-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.friends-list-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 10%;
+  font-size: 5vw;
+}
+
+@media (min-width: 800px) {
+  .friends-list-title {
+    font-size: 2vw;
+  }
+}
+
+.friends-list-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 90%;
+}
+
+.friends-list-content-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 90%;
+  overflow-y: scroll;
+}
+
+.friends-list-content-list-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 10%;
+  font-size: 3vw;
+}
+
+@media (min-width: 800px) {
+  .friends-list-content-list-item {
+    font-size: 1vw;
+  }
+}
+
+.friends-list-content-list-item:nth-child(odd) {
+  background-color: #f2f2f2;
+}
