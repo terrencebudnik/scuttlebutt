@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { app } from "../firebaseConfig.js";
+import { db } from "../firebaseConfig.js";
+import { ref, set } from "firebase/database";
 import {
   getAuth,
   RecaptchaVerifier,
@@ -9,16 +11,15 @@ import { useNavigate } from "react-router-dom";
 import LoginPageWelcome from "../components/LoginPageWelcome.js";
 import LoginPagePhone from "../components/LoginPagePhone.js";
 import LoginPageVerify from "../components/LoginPageVerify.js";
+import LoginPageName from "../components/LoginPageName.js";
 import "./LoginPage.css";
-
-
-
 
 function LoginPage() {
   const navigate = useNavigate();
   const [phone, setPhone] = useState("");
   const [code, setCode] = useState("");
   const [confirmationResult, setConfirmationResult] = useState(null);
+  const [userId, setUserId] = useState(null);
   const [stage, setStage] = useState("welcome");
 
   const formatPhoneNumber = (inputNumber) => {
@@ -30,23 +31,9 @@ function LoginPage() {
     return null;
   };
 
-  const handlePhoneChange = (inputs) => {
-    const phoneValue = inputs["Phone Number"];
-    console.log("Phone value from Keyboard: ", phoneValue);
-    setPhone(phoneValue);
-  };
-  
-  const handleCodeChange = (inputs) => {
-    const codeValue = inputs["Verification Code"];
-    console.log("Code value from Keyboard: ", codeValue);
-    setCode(codeValue);
-  };
-
-
-
   const handleSubmitPhone = async (event) => {
     event.preventDefault();
-    console.log("Phone before formatting: ", phone); // Add this line
+
     const formattedPhoneNumber = formatPhoneNumber(phone);
     if (formattedPhoneNumber) {
       if (!window.recaptchaVerifier) {
@@ -80,34 +67,51 @@ function LoginPage() {
       .confirm(code)
       .then((result) => {
         console.log("User signed in", result.user);
-        navigate("/");
+        setUserId(result.user.uid);
+        setStage("name");
       })
       .catch((error) => {
         console.log("Bad verification code", error);
       });
   };
 
+  const handleSubmitName = async (event, firstName, lastName) => {
+    event.preventDefault();
+
+    await set(ref(db, `users/${userId}`), {
+      firstName,
+      lastName,
+    });
+
+    navigate("/");
+  };
+
   const goToPhoneInput = () => {
     setStage("phoneInput");
-    console.log(stage);
   };
+
   return (
     <div className="login-page">
-        <h1 className="login-header">Scuttlebutt</h1>
+      <h1 className="login-header">Scuttlebutt</h1>
       <div className="login-container">
         {stage === "welcome" && <LoginPageWelcome onClick={goToPhoneInput} />}
         {stage === "phoneInput" && (
           <LoginPagePhone
-            phone={phone}
-            handlePhoneChange={handlePhoneChange}
             handleSubmitPhone={handleSubmitPhone}
+            setPhone={setPhone}
           />
         )}
         {stage === "verification" && (
           <LoginPageVerify
-            code={code}
-            handleCodeChange={handleCodeChange}
             handleSubmitCode={handleSubmitCode}
+            setCode={setCode}
+          />
+        )}
+        {stage === "name" && (
+          <LoginPageName
+            handleSubmitName={handleSubmitName}
+            setUserId={setUserId}
+            navigate={navigate}
           />
         )}
       </div>
