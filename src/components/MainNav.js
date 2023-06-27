@@ -1,8 +1,8 @@
+import { Link } from "react-router-dom";
 import accountIcon from "../images/accountIcon.svg"
 import homeIcon from "../images/homeIcon.svg"
 import contactsIcon from "../images/contactsIcon.svg"
 import groupsIcon from "../images/groupsIcon.svg"
-import { Link } from "react-router-dom";
 import "./MainNav.css";
 
 function MainNav() {
