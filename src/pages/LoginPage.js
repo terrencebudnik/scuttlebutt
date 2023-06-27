@@ -1,10 +1,8 @@
-import React, { useState } from "react";
-import { app } from "../firebaseConfig.js";
+import React, { useState} from "react";
 import { db } from "../firebaseConfig.js";
 import { ref, set } from "firebase/database";
 import {
   getAuth,
-  RecaptchaVerifier,
   signInWithPhoneNumber,
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
@@ -31,24 +29,11 @@ function LoginPage() {
     return null;
   };
 
-  const handleSubmitPhone = async (event) => {
-    event.preventDefault();
 
+  const handleSubmitPhone = async (recaptchaVerifier) => {
     const formattedPhoneNumber = formatPhoneNumber(phone);
     if (formattedPhoneNumber) {
-      if (!window.recaptchaVerifier) {
-        window.recaptchaVerifier = new RecaptchaVerifier(
-          "sign-in-button",
-          {
-            size: "invisible",
-            callback: (response) => {},
-          },
-          getAuth(app)
-        );
-      }
-
-      const appVerifier = window.recaptchaVerifier;
-      signInWithPhoneNumber(getAuth(), formattedPhoneNumber, appVerifier)
+      signInWithPhoneNumber(getAuth(), formattedPhoneNumber, recaptchaVerifier)
         .then((result) => {
           setConfirmationResult(result);
           setStage("verification");
@@ -60,7 +45,6 @@ function LoginPage() {
       console.log("Invalid phone number");
     }
   };
-
   const handleSubmitCode = async (event) => {
     event.preventDefault();
     confirmationResult

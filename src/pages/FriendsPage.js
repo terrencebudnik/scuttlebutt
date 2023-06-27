@@ -1,43 +1,30 @@
 import React, { useState, useEffect } from "react";
 import { app } from "../firebaseConfig";
-import { getAuth } from "firebase/auth";
-import { getDatabase, ref, onValue } from "firebase/database";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import "./FriendsPage.css";
 import AddFriends from "../components/AddFriends";
 import FriendsList from "../components/FriendsList";
 
 function FriendsPage() {
-  const [friends, setFriends] = useState([]);
+  const [isAuthReady, setIsAuthReady] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null);
+
+  const auth = getAuth(app);
 
   useEffect(() => {
-    const auth = getAuth(app);
-    const db = getDatabase();
-    const userId = auth.currentUser.uid;
-    const userFriendsRef = ref(db, `users/${userId}/friends`);
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setIsAuthReady(true);
+      setCurrentUser(user);
+    });
 
-    const fetchFriends = async () => {
-      onValue(userFriendsRef, (snapshot) => {
-        const friendIds = snapshot.val();
-        const promises = [];
-        for (let id in friendIds) {
-          promises.push(onValue(ref(db, `users/${id}`), (snapshot) => {
-            const user = snapshot.val();
-            user.id = id;
-            return user;
-          }));
-        }
-        Promise.all(promises).then(setFriends);
-      });
-    };
-
-    fetchFriends();
+    return () => unsubscribe();
   }, []);
 
   return (
     <div className="friends-page">
       <div className="friends-page-container">
         <AddFriends />
-        <FriendsList friends={friends} />
+        {currentUser && <FriendsList userId={currentUser.uid} />}
       </div>
     </div>
   );

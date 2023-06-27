@@ -1,8 +1,13 @@
-.App { 
+.App {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  background-color: lightgrey;
-
+  background-image: linear-gradient(
+    to bottom,
+    white,
+    white 90%,
+    #d0e8f2 80%,
+    #d0e8f2 80%
+  );
+  background-size: 100% 3em;
 }

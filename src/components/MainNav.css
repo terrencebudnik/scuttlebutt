@@ -1,29 +1,40 @@
-.main-nav-container {
+.main-nav {
+    position: fixed;
+  left: 0;
+  bottom: 0;
+    z-index: 2;
+    background-color: #fff;
+    width: 89%;
+    height: 3em;
 
-    
+
+
     display: flex;
     justify-content: center;
+
     align-items: center;
-    height: 15%;
-    width: 100%;
+    padding: 0 1em;
     background-color:#d0e8f2;
     font-weight: bold;
     border: #ff7f00 5px solid;
+
+
 }
 
 
-
-.main-nav-header {
+.main-nav-list {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 50%;
-}
-
-.main-nav-header h1 {
-    font-size: 75px;
-    color: light black;
-    font-family: 'Nanum Brush Script', cursive;
-}
+    list-style: none;
+    padding: 0;
+    justify-content: space-between;
+  }
   
+
+  .main-nav-item {
+    margin: 0 .5em;
+    padding: 0.25em 0.5em;
+
+    cursor: pointer;
+
+   
+  }
