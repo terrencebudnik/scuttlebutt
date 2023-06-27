@@ -11,16 +11,15 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    font-size: 8vw;
+    font-size: 5vw;
     font-weight: bold;
-    font-family: 'Nanum Brush Script', cursive;
 }
 
-@media (min-width: 800px) {
-    .login-welcome-header {
-      font-size: 3vw;
-    }
+@media (max-width: 768px) {
+  .login-welcome-header {
+    font-size: 10vw;
   }
+}
   
 
 .login-welcome-button {
@@ -32,17 +31,29 @@
     border-radius: 10px;
     background-color: #ff7f00;
     color: black;
-    font-size: 5vw;
+    font-size: 2.5em;
     font-weight: bold;
-    font-family: 'Nanum Brush Script', cursive;
     border: none;
     cursor: pointer;
+    font-family: "Nanum Brush Script", cursive;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 768px) {
     .login-welcome-button {
-      font-size: 3vw;
+      font-size: 3.5em;
       width: 20%;
     }
   }
   
+  .login-welcome-button:hover {
+    background-color: darken(#ff7f00, 10%);
+  }
+  
+  .login-welcome-button:active {
+    background-color: darken(#ff7f00, 20%);
+  }
+  
+  .login-welcome-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255,127,0, 0.5);
+  }

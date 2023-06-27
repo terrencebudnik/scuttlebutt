@@ -2,75 +2,70 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 100%;
+  justify-content: flex-start;
+  padding: 2em;
   color: #333;
-  width: 100%;
+  width: 90%;
   font-family: "Nanum Brush Script", cursive;
+ 
 }
 
 .add-friends-title {
- text-align: center;
-  font-size: 10vw;
+  text-align: center;
+  font-size: 2rem;
+  color: #1F2937;
+  margin-bottom: 1em;
+}
+
+.add-friends-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .add-friends-form h3 {
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  color: #374151;
+  margin-bottom: 0.5em;
 }
 
 .add-friends-form input {
-  display: block;
-  margin: 0 auto 1rem;
-  padding: 0.5rem;
-  width: 80%;
-  max-width: 500px;
-  font-size: 1.5rem;
+  padding: 0.5em;
+  font-size: 1rem;
   font-family: "Nanum Brush Script", cursive;
+  border-radius: 5px;
+  border: 1px solid black;
+  margin-bottom: 1em;
 }
 
 .search-results-container {
   width: 100%;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin-top: 1em;
 }
 
 .single-search-result {
-  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  border: 1px solid #0c7bcf;
-  box-sizing: border-box;
+  padding: 1em;
+  border: 1px solid #E5E7EB;
+  border-radius: 5px;
+  margin-bottom: 1em;
+  background-color: #F3F4F6;
 }
 
 .single-search-result p {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  color: #4B5563;
 }
 
-.clear-search-button {
-  margin: auto 100px;
-  padding: 0.5rem 1rem;
+.clear-search-button, .add-friend-button {
+  padding: 0.5em 1em;
   border: none;
   border-radius: 5px;
-  background-color: #ff7f00;
-  color: white;
-  cursor: pointer;
-  font-size: 1rem;
-  align-items: center;
-  justify-content: center;
-} 
-
-.add-friend-button {
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 5px;
-  background-color: #ff7f00;
+  background-color: #d0e8f2;
   color: white;
   cursor: pointer;
   font-size: 1rem;
@@ -78,13 +73,10 @@
 }
 
 .clear-search-button:hover, .add-friend-button:hover {
-  background-color: #0c7bcf;
+  background-color: #064E3B;
 }
 
 .add-friend-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 3rem;
   height: 3rem;
   background-color: transparent;

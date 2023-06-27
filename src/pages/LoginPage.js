@@ -1,10 +1,9 @@
-import React, { useState} from "react";
+import React, { useState, useEffect } from "react";
 import { db } from "../firebaseConfig.js";
+import { onAuthStateChanged } from "firebase/auth";
+import { get, child } from "firebase/database";
 import { ref, set } from "firebase/database";
-import {
-  getAuth,
-  signInWithPhoneNumber,
-} from "firebase/auth";
+import { getAuth, signInWithPhoneNumber } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import LoginPageWelcome from "../components/LoginPageWelcome.js";
 import LoginPagePhone from "../components/LoginPagePhone.js";
@@ -28,7 +27,6 @@ function LoginPage() {
     }
     return null;
   };
-
 
   const handleSubmitPhone = async (recaptchaVerifier) => {
     const formattedPhoneNumber = formatPhoneNumber(phone);
@@ -58,6 +56,26 @@ function LoginPage() {
         console.log("Bad verification code", error);
       });
   };
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(getAuth(), async (user) => {
+      if (user) {
+        const snapshot = await get(child(ref(db), `users/${user.uid}`));
+        if (
+          snapshot.exists() &&
+          snapshot.val().firstName &&
+          snapshot.val().lastName
+        ) {
+          navigate("/home");
+        } else {
+          setUserId(user.uid);
+          setStage("name");
+        }
+      }
+    });
+
+    return unsubscribe;
+  }, [navigate, db]);
 
   const handleSubmitName = async (event, firstName, lastName) => {
     event.preventDefault();
