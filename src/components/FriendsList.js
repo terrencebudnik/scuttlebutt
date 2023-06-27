@@ -1,11 +1,12 @@
 import "./FriendsList.css";
 
-function FriendsList() {
+function FriendsList({ friends }) {
   return (
     <div className="friends-list-container">
-      <div className="friends-list-card">
-        <h1>Friends List</h1>
-      </div>
+      <h1>Friends List</h1>
+      {friends.map(friend => (
+        <p key={friend.id}>{friend.firstName} {friend.lastName}</p>
+      ))}
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import { auth } from "../firebaseConfig";
+import { useNavigate } from "react-router-dom";
 import MainNav from "../components/MainNav";
 import GroupComponent from "../components/GroupComponent";
 import FriendsComponent from "../components/FriendsComponent";
@@ -7,12 +8,16 @@ import StartScuttle from "../components/StartScuttle";
 import "./Homepage.css";
 
 function Homepage() {
+  const navigate = useNavigate();
   const handleLogout = () => {
     auth.signOut();
+
+    navigate("/");
+
   };
 
   return (
-    <div className="homepage-container">
+    <div className="homepage">
       <MainNav />
       <FriendsComponent />
       <GroupComponent />

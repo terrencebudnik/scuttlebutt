@@ -83,7 +83,7 @@ function LoginPage() {
       lastName,
     });
 
-    navigate("/");
+    navigate("/home");
   };
 
   const goToPhoneInput = () => {

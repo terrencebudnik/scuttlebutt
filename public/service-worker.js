@@ -1,18 +1,16 @@
-// Give your cache a name. You can name it anything you want.
 const CACHE_NAME = "version-1";
 
-// The files we want to cache.
+
 const urlsToCache = [
     './index.html',
-    './static/css/main.css',  // Update with actual CSS file path
-    './static/js/main.js',    // Update with actual JS file path
+    './static/css/main.css',  
+    './static/js/main.js',   
     './manifest.json',
     './iconLogo.png'
 ];
 
-// Set the callback for the install step
+
 self.addEventListener('install', async function(event) {
-    // Perform install steps
     event.waitUntil(
         caches.open(CACHE_NAME)
             .then(function(cache) {
@@ -22,7 +20,7 @@ self.addEventListener('install', async function(event) {
     );
 });
 
-// Set up a listener for fetching. Log requests and serve cached responses when possible.
+
 self.addEventListener('fetch', event => {
     event.respondWith(
         caches.match(event.request)
@@ -40,7 +38,6 @@ self.addEventListener('fetch', event => {
     );
 });
 
-// Update a service worker
 self.addEventListener('activate', event => {
     const cacheWhitelist = [CACHE_NAME];
     event.waitUntil(

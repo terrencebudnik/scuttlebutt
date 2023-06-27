@@ -13,13 +13,13 @@ function LoginPageName({ handleSubmitName }) {
         onSubmit={(event) => handleSubmitName(event, firstName, lastName)}
       >
         <div className="name-input-container">
-          <input
+          <input className="name-input"
             type="text"
             placeholder="First Name"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
           />
-          <input
+          <input className="name-input"
             type="text"
             placeholder="Last Name"
             value={lastName}
