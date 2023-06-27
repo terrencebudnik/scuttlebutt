@@ -35,6 +35,7 @@ function LoginPage() {
         .then((result) => {
           setConfirmationResult(result);
           setStage("verification");
+          set(ref(db, `users/${result.user.uid}`), { phone: formattedPhoneNumber }); // add this line
         })
         .catch((error) => {
           console.log("SMS not sent", error);
@@ -51,6 +52,7 @@ function LoginPage() {
         console.log("User signed in", result.user);
         setUserId(result.user.uid);
         setStage("name");
+        set(ref(db, `users/${result.user.uid}`), { phone: formatPhoneNumber(phone) }); // save the phone number
       })
       .catch((error) => {
         console.log("Bad verification code", error);
@@ -80,9 +82,11 @@ function LoginPage() {
   const handleSubmitName = async (event, firstName, lastName) => {
     event.preventDefault();
 
+    // Update the user's data with firstName and lastName
     await set(ref(db, `users/${userId}`), {
       firstName,
       lastName,
+      phone: formatPhoneNumber(phone), // include the phone number
     });
 
     navigate("/home");
