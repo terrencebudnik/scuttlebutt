@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { app } from "../firebaseConfig";
 import { getAuth } from "firebase/auth";
-import { getDatabase, ref, set, onValue } from "firebase/database";
+import { getDatabase, ref, set, get, onValue } from "firebase/database";
 import "./SendScuttle.css";
 
 function SendScuttle() {
@@ -16,9 +16,9 @@ function SendScuttle() {
 
   const handleSearch = (event) => {
     event.preventDefault();
-
+  
     const usersRef = ref(db, "/users");
-    onValue(usersRef, (snapshot) => {
+    get(usersRef).then((snapshot) => {
       const users = snapshot.val();
       const results = [];
       for (let id in users) {
@@ -32,6 +32,7 @@ function SendScuttle() {
       setResults(results);
     });
   };
+  
 
   const handleSelectFriend = async (id, name) => {
     setSelectedFriend({id, name});

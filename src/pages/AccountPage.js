@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { app } from "../firebaseConfig";
 import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
-import { getDatabase, ref, onValue, off, set } from "firebase/database";
+import { getDatabase, ref, get } from "firebase/database";
 import { useNavigate } from "react-router-dom";
 import MainHeader from "../components/MainHeader";
 import "./AccountPage.css";
@@ -33,22 +33,21 @@ function AccountPage() {
   useEffect(() => {
     if (userId) {
       const userRef = ref(db, "users/" + userId); 
-      const listener = onValue(userRef, (snapshot) => {
-        const userData = snapshot.val();
-        if (userData) {
-          setFirstName(userData.firstName);
-          setLastName(userData.lastName);
-          setPhone(userData.phone);
-        }
-      }, {
-        onlyOnce: true,
-      });
-  
-      return () => {
-        off(userRef, 'value', listener);
-      };
+      get(userRef)
+        .then((snapshot) => {
+          const userData = snapshot.val();
+          if (userData) {
+            setFirstName(userData.firstName);
+            setLastName(userData.lastName);
+            setPhone(userData.phone);
+          }
+        })
+        .catch((error) => {
+          console.error("Error fetching user data: ", error);
+        });
     }
   }, [db, userId]); // Add userId as a dependency here
+  
   
 
   const handleLogout = () => {

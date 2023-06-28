@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { db } from "../firebaseConfig.js";
 import { onAuthStateChanged } from "firebase/auth";
 import { get, child } from "firebase/database";
-import { ref, set } from "firebase/database";
+import { ref } from "firebase/database";
 import { update } from "firebase/database";
 import { getAuth, signInWithPhoneNumber } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
