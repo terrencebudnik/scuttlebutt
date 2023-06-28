@@ -3,6 +3,7 @@ import { db } from "../firebaseConfig.js";
 import { onAuthStateChanged } from "firebase/auth";
 import { get, child } from "firebase/database";
 import { ref, set } from "firebase/database";
+import { update } from "firebase/database";
 import { getAuth, signInWithPhoneNumber } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import LoginPageWelcome from "../components/LoginPageWelcome.js";
@@ -31,67 +32,45 @@ function LoginPage() {
   const handleSubmitPhone = async (recaptchaVerifier) => {
     const formattedPhoneNumber = formatPhoneNumber(phone);
     if (formattedPhoneNumber) {
-      signInWithPhoneNumber(getAuth(), formattedPhoneNumber, recaptchaVerifier)
-        .then((result) => {
-          setConfirmationResult(result);
-          setStage("verification");
-          set(ref(db, `users/${result.user.uid}`), { phone: formattedPhoneNumber }); // add this line
-        })
-        .catch((error) => {
-          console.log("SMS not sent", error);
-        });
+      try {
+        const result = await signInWithPhoneNumber(getAuth(), formattedPhoneNumber, recaptchaVerifier);
+        setConfirmationResult(result);
+        setStage("verification");
+        await update(ref(db, `users/${result.user.uid}`), { phone: formattedPhoneNumber });
+      } catch (error) {
+        console.log("SMS not sent", error);
+      }
     } else {
       console.log("Invalid phone number");
     }
   };
+  
   const handleSubmitCode = async (event) => {
     event.preventDefault();
-    confirmationResult
-      .confirm(code)
-      .then((result) => {
-        console.log("User signed in", result.user);
-        setUserId(result.user.uid);
-        setStage("name");
-        set(ref(db, `users/${result.user.uid}`), { phone: formatPhoneNumber(phone) }); // save the phone number
-      })
-      .catch((error) => {
-        console.log("Bad verification code", error);
-      });
+    try {
+      const result = await confirmationResult.confirm(code);
+      console.log("User signed in", result.user);
+      setUserId(result.user.uid);
+      setStage("name");
+      await update(ref(db, `users/${result.user.uid}`), { phone: formatPhoneNumber(phone) });
+    } catch (error) {
+      console.log("Bad verification code", error);
+    }
   };
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(getAuth(), async (user) => {
-      if (user) {
-        const snapshot = await get(child(ref(db), `users/${user.uid}`));
-        if (
-          snapshot.exists() &&
-          snapshot.val().firstName &&
-          snapshot.val().lastName
-        ) {
-          navigate("/home");
-        } else {
-          setUserId(user.uid);
-          setStage("name");
-        }
-      }
-    });
-
-    return unsubscribe;
-  }, [navigate, db]);
-
+  
   const handleSubmitName = async (event, firstName, lastName) => {
     event.preventDefault();
-
+  
     // Update the user's data with firstName and lastName
-    await set(ref(db, `users/${userId}`), {
+    await update(ref(db, `users/${userId}`), {
       firstName,
       lastName,
-      phone: formatPhoneNumber(phone), // include the phone number
+      phone: formatPhoneNumber(phone),
     });
-
+  
     navigate("/home");
   };
-
+  
   const goToPhoneInput = () => {
     setStage("phoneInput");
   };
