@@ -57,6 +57,27 @@ function LoginPage() {
       console.log("Bad verification code", error);
     }
   };
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(getAuth(), async (user) => {
+      if (user) {
+        const snapshot = await get(child(ref(db), `users/${user.uid}`));
+        if (
+          snapshot.exists() &&
+          snapshot.val().firstName &&
+          snapshot.val().lastName
+        ) {
+          navigate("/home");
+        } else {
+          setUserId(user.uid); // ensure userId is set for returning users who have not set their name yet
+          setStage("name");
+        }
+      }
+    });
+
+    return unsubscribe;
+}, [navigate, db]);
+
   
   const handleSubmitName = async (event, firstName, lastName) => {
     event.preventDefault();
