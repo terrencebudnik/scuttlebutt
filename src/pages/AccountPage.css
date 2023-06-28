@@ -1,18 +1,10 @@
 .account-page {
-    display: flex;
+  display: flex;
   flex-direction: column;
+  height: 100%;
+  width: 100%;
   align-items: center;
-  background-image: linear-gradient(
-    to bottom,
-    white,
-    white 90%,
-    #d0e8f2 80%,
-    #d0e8f2 80%
-  );
-  background-size: 100% 3em;
-  height: 100vh;
-  width: 100vw;
-  font-family: "Nanum Brush Script", cursive;
+  overflow-y: auto;
 }
 
 .account-page-header {
@@ -32,16 +24,14 @@
 }
 
 .account-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding: 1em;
-    max-width: 800px;
-    border-radius: 10px;
-    border: #ff7f00 5px solid;
-    overflow: hidden;
-    background-color: #ffffff;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2em;
+  color: #333;
+  width: 90%;
 }
 
 .account-header {

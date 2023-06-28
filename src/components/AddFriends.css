@@ -1,4 +1,5 @@
 .add-friends-container {
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -6,7 +7,6 @@
   padding: 2em;
   color: #333;
   width: 90%;
-  font-family: "Nanum Brush Script", cursive;
  
 }
 
@@ -14,7 +14,7 @@
   text-align: center;
   font-size: 2rem;
   color: #1F2937;
-  margin-bottom: 1em;
+
 }
 
 .add-friends-form {

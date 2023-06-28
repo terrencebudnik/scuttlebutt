@@ -4,7 +4,7 @@ import './Keyboard.css';
 const Keyboard = ({ inputName, value, onChange }) => {
   const [isShifted, setIsShifted] = useState(false);
 
-  // Sync internal input state with external value
+ 
   const [input, setInput] = useState(value);
   useEffect(() => {
     setInput(value);

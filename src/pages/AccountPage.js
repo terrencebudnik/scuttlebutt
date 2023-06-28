@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
 import { getDatabase, ref, onValue, off, set } from "firebase/database";
 import { useNavigate } from "react-router-dom";
+import MainHeader from "../components/MainHeader";
 import "./AccountPage.css";
 
 function AccountPage() {
@@ -46,7 +47,7 @@ function AccountPage() {
 
   return (
     <div className="account-page">
-      <h1 className="account-page-header">Scuttlebut</h1>
+     <MainHeader />
       <div className="account-container">
         <h2 className="account-header">Account Details</h2>
         <h3 className="account-name">Name: {firstName} {lastName}</h3>

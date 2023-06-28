@@ -1,16 +1,15 @@
+import React from "react";
+import MainHeader from "../components/MainHeader";
 import SendScuttle from "../components/SendScuttle";
 import "./ScuttleMainPage.css";
 
 function ScuttleMainPage() {
-
-    return (
-        <div className="scuttle-main-page">
-        <div className="scuttle-main-page-container">
-            <h1>What's the Scuttlebutt?</h1>
-            <SendScuttle />
-        </div>
-        </div>
-    );
-    }
+  return (
+    <div className="scuttle-main-page">
+      <MainHeader />
+      <SendScuttle />
+    </div>
+  );
+}
 
 export default ScuttleMainPage;

@@ -1,30 +1,9 @@
 .friends-page {
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-  box-sizing: border-box;
-  background-image: linear-gradient(
-    to bottom,
-    white,
-    white 90%,
-    #d0e8f2 80%,
-    #d0e8f2 80%
-  );
-  background-size: 100% 3rem;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    overflow-y: auto;
 }
 
-.friends-page-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  padding: 1em;
-  max-width: 800px;
-  border-radius: 10px;
-  border: #ff7f00 5px solid;
-  overflow: hidden;
-  background-color: #ffffff;
-}

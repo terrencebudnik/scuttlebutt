@@ -40,20 +40,20 @@ function SendScuttle() {
   const handleSendScuttle = async (event) => {
     event.preventDefault();
     const userId = auth.currentUser.uid;
-    const scuttleId = `${userId}-${selectedFriend.id}-${Date.now()}`; // generate a unique ID for the scuttle
+    const scuttleId = `${userId}-${selectedFriend.id}-${Date.now()}`; 
     await set(ref(db, `scuttles/${scuttleId}`), {
       sender: userId,
       recipient: selectedFriend.id,
       message,
     });
-    setMessage(""); // reset the message input
-    setSelectedFriend({id: "", name: ""}); // reset the selected friend
+    setMessage(""); 
+    setSelectedFriend({id: "", name: ""}); 
   };
 
 
   return (
     <div className="send-scuttle-container">
-      <h1 className="send-scuttle-title">Start the Scuttlebut</h1>
+      <h1 className="send-scuttle-title">What's the Scuttlebutt?</h1>
       <form onSubmit={handleSendScuttle}>
         <div className="send-scuttle-form">
           <textarea 
