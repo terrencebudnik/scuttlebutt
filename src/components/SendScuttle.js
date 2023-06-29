@@ -42,6 +42,7 @@ function SendScuttle() {
     const userId = auth.currentUser.uid;
     const scuttleId = `${userId}-${selectedFriend.id}-${Date.now()}`;
     await set(ref(db, `scuttles/${scuttleId}`), {
+      id: scuttleId,
       sender: userId,
       recipient: selectedFriend.id,
       message,

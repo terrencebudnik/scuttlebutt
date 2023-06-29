@@ -6,4 +6,20 @@
     align-items: center;
     overflow-y: auto;
   }
+
+.scuttle-play-container {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2em;
+  color: #333;
+  width: 90%;
+}
   
+.scuttle-play-title {
+  text-align: center;
+  font-size: 2rem;
+  color: #1f2937;
+}

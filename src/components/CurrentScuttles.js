@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { app } from "../firebaseConfig";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getDatabase, ref, onValue } from "firebase/database";
+import { Link } from "react-router-dom";
 import "./CurrentScuttles.css";
 
 function CurrentScuttles() {
@@ -81,10 +82,12 @@ function CurrentScuttles() {
       <h1 className="current-scuttles-title">Current Scuttles</h1>
       <div className="current-scuttles-list-container">
         {scuttles.map((scuttle, index) => (
-          <p key={index} onClick={() => handleScuttleClick(index)}>
-            {scuttle.sender} started a scuttlebutt...
-            {openedScuttleIndex === index && <span>{scuttle.message}</span>}
-          </p>
+          <Link to={`/scuttle-play/${scuttle.id}`} key={index}>
+            <p>
+              {scuttle.sender} started a scuttlebutt...
+              {openedScuttleIndex === index && <span>{scuttle.message}</span>}
+            </p>
+          </Link>
         ))}
       </div>
     </div>

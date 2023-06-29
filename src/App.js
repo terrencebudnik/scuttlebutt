@@ -21,7 +21,7 @@ function App() {
             <Route path="/" element={<LoginPage />} />
             <Route path="/home" element={<Homepage />} />
             <Route path="/current-scuttles" element={<CurrentScuttlesPage />} />
-            <Route path="/scuttle-play" element={<ScuttlePlayPage />} />
+            <Route path="/scuttle-play/:id" element={<ScuttlePlayPage />} />
             <Route path="/scuttle" element={<ScuttleMainPage />} />
             <Route path="/friends" element={<FriendsPage />} />
             <Route path="/groups" element={<GroupsPage />} />
