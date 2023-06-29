@@ -22,7 +22,6 @@ function CurrentScuttles() {
       }
     });
 
-    // Cleanup subscription on unmount
     return () => unsubscribe();
   }, []);
 
@@ -90,8 +89,6 @@ function CurrentScuttles() {
       </div>
     </div>
   );
-  
 }
 
 export default CurrentScuttles;
-

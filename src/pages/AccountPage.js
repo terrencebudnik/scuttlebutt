@@ -12,8 +12,9 @@ function AccountPage() {
   const [lastName, setLastName] = useState("");
   const [phone, setPhone] = useState("");
 
-  const navigate = useNavigate();
   const auth = getAuth(app);
+  const db = getDatabase();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -24,15 +25,12 @@ function AccountPage() {
       }
     });
 
-    // Cleanup subscription on unmount
     return () => unsubscribe();
   }, []);
 
-  const db = getDatabase();
-
   useEffect(() => {
     if (userId) {
-      const userRef = ref(db, "users/" + userId); 
+      const userRef = ref(db, "users/" + userId);
       get(userRef)
         .then((snapshot) => {
           const userData = snapshot.val();
@@ -46,9 +44,7 @@ function AccountPage() {
           console.error("Error fetching user data: ", error);
         });
     }
-  }, [db, userId]); // Add userId as a dependency here
-  
-  
+  }, [db, userId]);
 
   const handleLogout = () => {
     signOut(auth)
@@ -62,10 +58,12 @@ function AccountPage() {
 
   return (
     <div className="account-page">
-     <MainHeader />
+      <MainHeader />
       <div className="account-container">
         <h2 className="account-header">Account Details</h2>
-        <h3 className="account-name">Name: {firstName} {lastName}</h3>
+        <h3 className="account-name">
+          Name: {firstName} {lastName}
+        </h3>
         <h3 className="account-phone">Phone: {phone}</h3>
         <br />
         <br />

@@ -21,17 +21,17 @@
 .friends-list-container h1 {
   font-size: 2rem;
   color: #1f2937;
-  margin-bottom: 1em;
+  margin-bottom: 0.1em;
   text-align: center;
 }
 
 .friends-list-container p {
   width: 90%;
-  padding: 1em;
   border: 1px solid #e5e7eb;
+  padding-left: 1em;
   border-radius: 5px;
-  margin-bottom: 1em;
-  font-size: 1.2rem;
+  margin-bottom: 0.1em;
+  font-size: 1.4rem;
   color: #4b5563;
-  background-color: #d0e8f2;
+  border: #ff7f00 2px solid;
 }

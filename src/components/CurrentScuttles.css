@@ -7,20 +7,15 @@
   padding: 2em;
   color: #333;
   width: 90%;
-    
-  }
-  
-  
-  
- 
-  .current-scuttles-list-container p {
-    width: 90%;
-    padding: 1em;
-    border: 1px solid #E5E7EB;
-    border-radius: 5px;
-    margin-bottom: 1em;
-    font-size: 1.2rem;
-    color: #4B5563;
-    background-color: #d0e8f2;
-  }
-  
+}
+
+.current-scuttles-list-container p {
+  width: 90%;
+  padding: 1em;
+  border: 1px solid #e5e7eb;
+  border-radius: 5px;
+  margin-bottom: 1em;
+  font-size: 1.2rem;
+  color: #4b5563;
+  background-color: #d0e8f2;
+}

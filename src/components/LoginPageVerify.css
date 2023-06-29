@@ -1,5 +1,5 @@
 .login-verify-container {
-   display: flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
@@ -18,7 +18,7 @@
 }
 
 .login-verify-form {
-   display: flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
@@ -28,10 +28,9 @@
 .code-input-container {
   display: flex;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
   width: 60%;
   color: #333;
-  font-family: "Nanum Brush Script", cursive;
 }
 
 .code-input {
@@ -41,8 +40,7 @@
   width: 60%;
   background-color: #f2f2f2;
   color: #333;
-  font-family: "Nanum Brush Script", cursive;
-  font-size: 1.5em; 
+  font-size: 1.5em;
 }
 
 .login-verify-form button {
@@ -51,7 +49,5 @@
   border-radius: 10px;
   background-color: #ff7f00;
   color: black;
-  font-family: "Nanum Brush Script", cursive;
   font-size: 1.5em;
 }
-

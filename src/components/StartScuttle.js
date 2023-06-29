@@ -7,11 +7,11 @@ function StartScuttle() {
   return (
     <div className="start-scuttle-container">
       <Link to="/scuttle">
-      <img
-        src={startScuttleButton}
-        style={{ height: "100%", color: "black" }}
-        alt="start scuttle"
-      />
+        <img
+          src={startScuttleButton}
+          style={{ height: "100%", color: "black" }}
+          alt="start scuttle"
+        />
       </Link>
     </div>
   );

@@ -28,23 +28,18 @@
   width: 10em;
   text-align: start;
   font-size: 2rem;
-  font-family: "Nanum Brush Script", cursive;
   border-radius: 5px;
   border: 1px solid black;
-
 }
 
 .send-to {
   text-align: center;
   font-size: 1.5rem;
   color: #1f2937;
-
 }
 
 .send-scuttle-friend {
-  padding: 0.5em;
   font-size: 1rem;
-  font-family: "Nanum Brush Script", cursive;
   border-radius: 5px;
   border: 1px solid black;
   margin-bottom: 1em;

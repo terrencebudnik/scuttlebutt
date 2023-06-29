@@ -33,10 +33,16 @@ function LoginPage() {
     const formattedPhoneNumber = formatPhoneNumber(phone);
     if (formattedPhoneNumber) {
       try {
-        const result = await signInWithPhoneNumber(getAuth(), formattedPhoneNumber, recaptchaVerifier);
+        const result = await signInWithPhoneNumber(
+          getAuth(),
+          formattedPhoneNumber,
+          recaptchaVerifier
+        );
         setConfirmationResult(result);
         setStage("verification");
-        await update(ref(db, `users/${result.user.uid}`), { phone: formattedPhoneNumber });
+        await update(ref(db, `users/${result.user.uid}`), {
+          phone: formattedPhoneNumber,
+        });
       } catch (error) {
         console.log("SMS not sent", error);
       }
@@ -44,7 +50,7 @@ function LoginPage() {
       console.log("Invalid phone number");
     }
   };
-  
+
   const handleSubmitCode = async (event) => {
     event.preventDefault();
     try {
@@ -52,7 +58,9 @@ function LoginPage() {
       console.log("User signed in", result.user);
       setUserId(result.user.uid);
       setStage("name");
-      await update(ref(db, `users/${result.user.uid}`), { phone: formatPhoneNumber(phone) });
+      await update(ref(db, `users/${result.user.uid}`), {
+        phone: formatPhoneNumber(phone),
+      });
     } catch (error) {
       console.log("Bad verification code", error);
     }
@@ -69,29 +77,27 @@ function LoginPage() {
         ) {
           navigate("/home");
         } else {
-          setUserId(user.uid); // ensure userId is set for returning users who have not set their name yet
+          setUserId(user.uid);
           setStage("name");
         }
       }
     });
 
     return unsubscribe;
-}, [navigate, db]);
+  }, [navigate, db]);
 
-  
   const handleSubmitName = async (event, firstName, lastName) => {
     event.preventDefault();
-  
-    // Update the user's data with firstName and lastName
+
     await update(ref(db, `users/${userId}`), {
       firstName,
       lastName,
       phone: formatPhoneNumber(phone),
     });
-  
+
     navigate("/home");
   };
-  
+
   const goToPhoneInput = () => {
     setStage("phoneInput");
   };

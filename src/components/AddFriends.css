@@ -7,14 +7,12 @@
   padding: 2em;
   color: #333;
   width: 90%;
- 
 }
 
 .add-friends-title {
   text-align: center;
   font-size: 2rem;
-  color: #1F2937;
-
+  color: #1f2937;
 }
 
 .add-friends-form {
@@ -41,27 +39,28 @@
 
 .search-results-container {
   width: 100%;
-  margin-top: 1em;
+  margin-top: 0.2em;
 }
 
 .single-search-result {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1em;
-  border: 1px solid #E5E7EB;
+  padding-left: 1em;
+  border: 1px solid #e5e7eb;
   border-radius: 5px;
-  margin-bottom: 1em;
-  background-color: #F3F4F6;
+  margin-bottom: 0.2em;
+  background-color: #f3f4f6;
 }
 
 .single-search-result p {
   margin: 0;
   font-size: 1.2rem;
-  color: #4B5563;
+  color: #4b5563;
 }
 
-.clear-search-button, .add-friend-button {
+.clear-search-button,
+.add-friend-button {
   padding: 0.5em 1em;
   border: none;
   border-radius: 5px;
@@ -72,8 +71,9 @@
   text-align: center;
 }
 
-.clear-search-button:hover, .add-friend-button:hover {
-  background-color: #064E3B;
+.clear-search-button:hover,
+.add-friend-button:hover {
+  background-color: #064e3b;
 }
 
 .add-friend-button {

@@ -7,7 +7,7 @@ import "./SendScuttle.css";
 function SendScuttle() {
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
-  const [selectedFriend, setSelectedFriend] = useState({id: "", name: ""});
+  const [selectedFriend, setSelectedFriend] = useState({ id: "", name: "" });
   const [results, setResults] = useState([]);
 
   const auth = getAuth(app);
@@ -16,7 +16,7 @@ function SendScuttle() {
 
   const handleSearch = (event) => {
     event.preventDefault();
-  
+
     const usersRef = ref(db, "/users");
     get(usersRef).then((snapshot) => {
       const users = snapshot.val();
@@ -32,36 +32,34 @@ function SendScuttle() {
       setResults(results);
     });
   };
-  
 
   const handleSelectFriend = async (id, name) => {
-    setSelectedFriend({id, name});
+    setSelectedFriend({ id, name });
   };
 
   const handleSendScuttle = async (event) => {
     event.preventDefault();
     const userId = auth.currentUser.uid;
-    const scuttleId = `${userId}-${selectedFriend.id}-${Date.now()}`; 
+    const scuttleId = `${userId}-${selectedFriend.id}-${Date.now()}`;
     await set(ref(db, `scuttles/${scuttleId}`), {
       sender: userId,
       recipient: selectedFriend.id,
       message,
     });
-    setMessage(""); 
-    setSelectedFriend({id: "", name: ""}); 
+    setMessage("");
+    setSelectedFriend({ id: "", name: "" });
   };
-
 
   return (
     <div className="send-scuttle-container">
       <h1 className="send-scuttle-title">What's the Scuttlebutt?</h1>
       <form onSubmit={handleSendScuttle}>
         <div className="send-scuttle-form">
-          <textarea 
-            type="text" 
-            className="send-scuttle-input" 
+          <textarea
+            type="text"
+            className="send-scuttle-input"
             value={message}
-            onChange={(e) => setMessage(e.target.value)} 
+            onChange={(e) => setMessage(e.target.value)}
           />
           <h2 className="send-to">Send to:</h2>
           <input
@@ -87,7 +85,12 @@ function SendScuttle() {
             </p>
             <button
               className="add-friend-button"
-              onClick={() => handleSelectFriend(user.id, `${user.firstName} ${user.lastName}`)}
+              onClick={() =>
+                handleSelectFriend(
+                  user.id,
+                  `${user.firstName} ${user.lastName}`
+                )
+              }
             >
               Select
             </button>
@@ -99,4 +102,3 @@ function SendScuttle() {
 }
 
 export default SendScuttle;
-

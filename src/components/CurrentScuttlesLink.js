@@ -1,17 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./CurrentScuttlesLink.css"
+import "./CurrentScuttlesLink.css";
 
 function CurrentScuttlesLink() {
-
-    return (
+  return (
     <div className="current-scuttles-link-container">
-        <Link to="/current-scuttles" className="current-scuttles-link-link">
+      <Link to="/current-scuttles" className="current-scuttles-link-link">
         <h1>Scuttles</h1>
-        </Link>
+      </Link>
     </div>
-    )
+  );
 }
 
 export default CurrentScuttlesLink;
-
