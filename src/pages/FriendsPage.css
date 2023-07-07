@@ -6,3 +6,9 @@
   align-items: center;
   overflow-y: auto;
 }
+
+
+.friends-page img {
+  width: 150px;
+  height: 100%;
+}
