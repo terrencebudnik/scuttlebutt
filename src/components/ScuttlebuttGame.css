@@ -1,0 +1,87 @@
+.scuttlebutt-game-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-family: "Permanent Marker", cursive;
+  font-weight: 400;
+}
+
+.start-game-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+  width: 80%;
+  height: 100%;
+  font-size: 2.5em;
+  border: #d0e8f2 4px solid;
+  background: #ff7f00;
+  font-family: "Permanent Marker", cursive;
+}
+
+.close-game-button {
+  display: flex;
+  align-self: flex-end;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1%;
+  width: 10%;
+  height: 100%;
+  font-size: 1em;
+  border: #d0e8f2 4px solid;
+  background: #ff7f00;
+}
+
+.scuttlebutt-nested-game-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+  width: 100%;
+  height: 100%;
+  font-size: 4.5em;
+}
+
+.scuttlebutt-nested-game2-body {
+  display: flex;
+  margin-top: 5%;
+  width: 100%;
+  height: 100%;
+}
+
+.scuttlebutt-nested-game2-body p {
+  display: flex;
+  margin-top: 5%;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  font-size: 1.5em;
+}
+
+.scuttlebutt-game-submission {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+  width: 100%;
+  height: 100%;
+  font-size: 4.5em;
+}
+
+.scuttlebutt-game-submission textarea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+  width: 90%;
+  height: 100px;
+
+  border: #ff7f00 4px solid;
+
+  font-family: "Permanent Marker", cursive;
+}

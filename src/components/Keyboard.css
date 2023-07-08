@@ -1,19 +1,54 @@
 .keyboard {
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    gap: 10px;
-  }
-  
-  .keyboard button {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #4C4C4C;
-    color: white;
-    font-size: 18px;
-  }
-  
-  .keyboard div {
-    grid-column: span 10;
-  }
-  
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 2;
+  background-color: #4c4c4c;
+  display: grid;
+  grid-gap: 5px;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.keyboard button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  font-size: 18px;
+}
+
+.top-row {
+  grid-column: span 10;
+  display: flex;
+  justify-content: space-between;
+}
+
+.second-row {
+  grid-column: span 10;
+  display: flex;
+  justify-content: space-around;
+}
+
+.third-row {
+  grid-column: span 10;
+  display: flex;
+  justify-content: space-around;
+}
+
+.fourth-row {
+  grid-column: span 10;
+  display: flex;
+  justify-content: space-around;
+}
+
+.space-button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  font-size: 18px;
+  width: 171px;
+}

@@ -2,12 +2,12 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
     to bottom,
     white,
     white 90%,
     #d0e8f2 80%,
     #d0e8f2 80%
   );
-  background-size: 100% 3rem;
+  background-size: 100% 3rem; */
 }

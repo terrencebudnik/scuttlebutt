@@ -5,3 +5,17 @@
   width: 100%;
   align-items: center;
 }
+
+.play-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+  width: 70%;
+  height: 20%;
+  font-size: 1.5em;
+  border: #d0e8f2 4px solid;
+  background: #ff7f00;
+  font-family: "Permanent Marker", cursive;
+  font-weight: 400;
+}
