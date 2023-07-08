@@ -9,7 +9,7 @@
 .login-welcome-header {
   display: flex;
   justify-content: center;
-  align-items: center;
+text-align: center;
   width: 100%;
   font-size: 5vw;
   font-weight: bold;
@@ -29,11 +29,10 @@
   height: 25%;
   border-radius: 10px;
   background-color: #ff7f00;
+  border: #d0e8f2 4px solid;
   color: black;
   font-size: 2.5em;
   font-weight: bold;
-  border: none;
-  cursor: pointer;
 }
 
 @media (min-width: 768px) {
@@ -41,17 +40,4 @@
     font-size: 3.5em;
     width: 20%;
   }
-}
-
-.login-welcome-button:hover {
-  background-color: darken(#ff7f00, 10%);
-}
-
-.login-welcome-button:active {
-  background-color: darken(#ff7f00, 20%);
-}
-
-.login-welcome-button:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(255, 127, 0, 0.5);
 }
